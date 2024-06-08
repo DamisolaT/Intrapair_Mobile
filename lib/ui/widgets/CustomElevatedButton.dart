@@ -1,17 +1,8 @@
-
 import 'package:flutter/material.dart';
-import 'package:intrapair_task/ui/pages/selectpage.dart';
 
-class CustomElevatedButton extends StatefulWidget {
-  const CustomElevatedButton({
-    super.key,
-  });
+class CustomElevatedButton extends StatelessWidget {
+  const CustomElevatedButton({Key? key}) : super(key: key);
 
-  @override
-  State<CustomElevatedButton> createState() => _CustomElevatedButtonState();
-}
-
-class _CustomElevatedButtonState extends State<CustomElevatedButton> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -25,18 +16,16 @@ class _CustomElevatedButtonState extends State<CustomElevatedButton> {
                 borderRadius: BorderRadius.circular(8.0), // Adjust the value as needed for the desired circular shape
               ),
               child: ElevatedButton(
-                onPressed: (){
-
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=> SelectPage()
-                 ));
+                onPressed: () {
+                  // Add your onPressed logic here
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.white,
                   elevation: 0, // Remove the button's elevation
                 ),
                 child: Container(
-                  padding: EdgeInsets.all(10.0),
-                  child: Text(
+                  padding: const EdgeInsets.all(10.0),
+                  child: const Text(
                     "Go ahead",
                     textAlign: TextAlign.center,
                     style: TextStyle(

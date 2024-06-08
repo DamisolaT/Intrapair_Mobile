@@ -5,6 +5,7 @@ class CustomTextFieldFormWithIcon extends StatefulWidget {
   final TextEditingController controller;
   final IconData? trailingIcon;
   final TextInputType? keyboardType;
+  final GestureTapCallback? onTap;
 
   const CustomTextFieldFormWithIcon({
     Key? key, // Change super.key to Key? key
@@ -12,6 +13,7 @@ class CustomTextFieldFormWithIcon extends StatefulWidget {
     required this.controller,
     this.keyboardType = TextInputType.text,
     this.trailingIcon = Icons.arrow_forward,
+    this.onTap,
   }) : super(key: key); // Call super with key argument
 
   @override
@@ -22,6 +24,7 @@ class _CustomTextFieldFormState extends State<CustomTextFieldFormWithIcon> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onTap:widget.onTap,
       controller: widget.controller,
       keyboardType: widget.keyboardType,
       decoration: InputDecoration(

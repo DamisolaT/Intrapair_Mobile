@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intrapair_task/bloc/country_bloc.dart';
+import 'package:intrapair_task/ui/pages/selectpage.dart';
 import 'package:intrapair_task/ui/widgets/CustomElevatedButton.dart';
 import 'package:intrapair_task/ui/widgets/CustomTextFieldForm.dart';
 import 'package:intrapair_task/ui/widgets/Header.dart';
@@ -28,8 +29,12 @@ class Homepage extends StatelessWidget {
             ),
             SizedBox(height: 50),
             Padding(
+
               padding: const EdgeInsets.all(16.0),
               child: CustomTextFieldFormWithIcon(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> SelectPage()));
+                },
                 hintText: "Select Country",
                 controller: TextEditingController(),
               ),
@@ -37,7 +42,10 @@ class Homepage extends StatelessWidget {
             SizedBox(height: 200),
             CustomElevatedButton(),
             SizedBox(height: 40,),
-            SocialIcon()
+            Padding(
+              padding: const EdgeInsets.only(top: 30.0),
+              child: SocialIcon(),
+            )
 
 
 
@@ -49,4 +57,5 @@ class Homepage extends StatelessWidget {
     );
   }
 }
+
 

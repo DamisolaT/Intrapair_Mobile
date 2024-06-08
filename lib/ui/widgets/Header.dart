@@ -22,7 +22,7 @@ class Header extends StatelessWidget {
             child: Image.asset("assets/images/location_icon.png", height: 50,),
           ),
         ),
-        const SizedBox(height: 20), // Space between image and text
+        const SizedBox(height: 50), // Space between image and text
         Text(
           title, // Adjust the text as needed
           style: const TextStyle(

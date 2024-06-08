@@ -13,15 +13,11 @@ class CountryBloc extends Cubit<CountryState> {
 
   Future<void> fetchCountries() async {
     try {
-      // Here you can use the repository to fetch countries
+
       await countryRepository.getCountries();
-      // Update the state based on the fetched data
-      // For example:
-      // emit(state.copyWith(allCountries: fetchedCountries));
     } catch (e) {
       // Handle errors
       print("Error fetching countries: $e");
     }
   }
 }
-

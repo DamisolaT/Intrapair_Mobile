@@ -1,8 +1,9 @@
 import 'package:equatable/equatable.dart';
+import 'package:intrapair_task/model/country_model.dart';
 
 class CountryState extends Equatable {
-  final List<String> allCountries;
-  final List<String> selectedCountries;
+  final List<CountryModel> allCountries;
+  final List<CountryModel> selectedCountries;
 
   CountryState({
     required this.allCountries,
@@ -13,15 +14,13 @@ class CountryState extends Equatable {
   @override
   List<Object?> get props => [allCountries, selectedCountries];
 
-  factory CountryState.fromJson(Map<String, dynamic> json) {
-    final List<dynamic> countries = json['countries'];
-    final List<String> allCountries = countries.map<String>((country) => country['name']['common']).toList();
-    // Assuming initially no countries are selected
-    final List<String> selectedCountries = [];
-
+  CountryState copyWith({
+    List<CountryModel>? allCountries,
+    List<CountryModel>? selectedCountries,
+  }) {
     return CountryState(
-      allCountries: allCountries,
-      selectedCountries: selectedCountries,
+      allCountries: allCountries ?? this.allCountries,
+      selectedCountries: selectedCountries ?? this.selectedCountries,
       loadCountries: [],
     );
   }

@@ -18,7 +18,7 @@ class SocialIcon extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.only(right: 8.0),
-              child: Image.asset("assets/images/google_img.png", height: 40,),
+              child: Image.asset("assets/images/google_icon.png", height: 40,),
             ),
             Text("Continue with another Gmail",
               style: TextStyle(
