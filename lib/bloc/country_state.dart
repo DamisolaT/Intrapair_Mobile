@@ -3,12 +3,12 @@ import 'package:intrapair_task/model/country_model.dart';
 
 class CountryState extends Equatable {
   final List<CountryModel> allCountries;
-  final List<CountryModel> selectedCountries;
+  final CountryModel? selectedCountries;
 
   CountryState({
-    required this.allCountries,
-    required this.selectedCountries,
-    required List loadCountries,
+     this.allCountries = const [],
+     this.selectedCountries,
+
   });
 
   @override
@@ -16,12 +16,12 @@ class CountryState extends Equatable {
 
   CountryState copyWith({
     List<CountryModel>? allCountries,
-    List<CountryModel>? selectedCountries,
+    CountryModel? selectedCountries,
   }) {
     return CountryState(
       allCountries: allCountries ?? this.allCountries,
       selectedCountries: selectedCountries ?? this.selectedCountries,
-      loadCountries: [],
+
     );
   }
 }

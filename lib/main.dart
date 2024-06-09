@@ -16,9 +16,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final countryRepository = CountryRepository(); // Create the repository instance
-
     return BlocProvider(
-      create: (context) => CountryBloc(countryRepository), // Provide your Bloc instance with the repository
+      create: (context) => CountryBloc(countryRepository),
+      lazy: false,
       child: MaterialApp(
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,

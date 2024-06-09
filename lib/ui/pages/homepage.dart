@@ -14,8 +14,9 @@ class Homepage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    CountryBloc countryBloc = context.read<CountryBloc>();
-    countryBloc.fetchCountries();
+    CountryBloc countryBloc = context.watch<CountryBloc>();
+
+    var selectedCountries = countryBloc.state.selectedCountries;
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -28,19 +29,27 @@ class Homepage extends StatelessWidget {
               additionalText: 'give you a better experience',
             ),
             SizedBox(height: 50),
-            Padding(
-
-              padding: const EdgeInsets.all(16.0),
-              child: CustomTextFieldFormWithIcon(
-                onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=> SelectPage()));
-                },
-                hintText: "Select Country",
-                controller: TextEditingController(),
-              ),
-            ),
+             GestureDetector(
+               onTap: (){
+                 Navigator.push(context, MaterialPageRoute(builder: (context)=> SelectPage()));
+               },
+               child: Container(
+                   child: selectedCountries == null? Row(
+                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                   children: [
+                     Text("Select Country"),
+                     Icon(Icons.arrow_forward)
+                   ],
+                 ):
+                 ListTile(
+                   title: Text(selectedCountries.name),
+                   trailing: Icon(Icons.arrow_forward),
+                   leading: Image.network(selectedCountries.flag, height: 20,width: 40,),
+                 )
+               ),
+             ),
             SizedBox(height: 200),
-            CustomElevatedButton(),
+            Expanded(child: CustomElevatedButton()),
             SizedBox(height: 40,),
             Padding(
               padding: const EdgeInsets.only(top: 30.0),

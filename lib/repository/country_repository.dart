@@ -13,7 +13,7 @@ class CountryRepository {
 
     if (response.statusCode == 200) {
       print(response.body);
-      List<Map<String, dynamic>> jsonList = jsonDecode(response.body) as List<Map<String, dynamic>>;
+      List<dynamic> jsonList = jsonDecode(response.body) as List<dynamic>;
 
       List<CountryModel> countryList = [];
       for (var element in jsonList) {

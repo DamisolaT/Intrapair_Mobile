@@ -12,16 +12,17 @@ class SelectPage extends StatefulWidget {
 }
 
 class _SelectPageState extends State<SelectPage> {
-
-
   @override
   Widget build(BuildContext context) {
-    var listOfCountries = context.watch<CountryBloc>().state.allCountries;
+    var countryBloc = context.watch<CountryBloc>();
+    var listOfCountries = countryBloc.state.allCountries;
+
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: Colors.white,// Remove the back icon
+        backgroundColor: Colors.white, // Remove the back icon
         title: Row(
           children: [
             Text(
@@ -47,9 +48,30 @@ class _SelectPageState extends State<SelectPage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: CustomTextFieldForm(
-          hintText: 'Select Country',
-          controller: TextEditingController(),
+        child: Column(
+          children: [
+            CustomTextFieldForm(
+              hintText: 'Select Country',
+              controller: TextEditingController(),
+            ),
+            Expanded(
+              child: ListView.builder(
+                shrinkWrap: true,  // Add this line
+                itemCount: listOfCountries.length,
+                itemBuilder: (BuildContext context, int index) {
+                  final country = listOfCountries[index];
+                   return ListTile(
+                    title: Text(country.name),
+                    onTap: () {
+                      countryBloc.setSelectedCountry(country);
+                      Navigator.pop(context);
+                    },
+                  );
+                },
+              ),
+
+            ),
+          ],
         ),
       ), // Placeholder for body content
     );
