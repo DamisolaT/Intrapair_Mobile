@@ -4,6 +4,8 @@ import 'package:intrapair_task/bloc/country_bloc.dart';
 import 'package:intrapair_task/ui/widgets/country_textfield.dart';
 import 'package:intrapair_task/ui/widgets/country_textfieldicon.dart';
 
+import 'homepage.dart';
+
 class SelectPage extends StatefulWidget {
   const SelectPage({Key? key}) : super(key: key);
 
@@ -35,10 +37,15 @@ class _SelectPageState extends State<SelectPage> {
         ),
         actions: [
           IconButton(
-            icon: Image.asset(
-              'assets/images/cancel_icon.png',
-              height: 15,
-              color: Colors.black,
+            icon: GestureDetector(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>Homepage()));
+              },
+              child: Image.asset(
+                'assets/images/cancel_icon.png',
+                height: 15,
+                color: Colors.black,
+              ),
             ), // Use your image here
             onPressed: () {
               // Add your onPressed logic here
