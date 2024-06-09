@@ -39,8 +39,8 @@ class Homepage extends StatelessWidget {
                  child: Container(
 
                    decoration: BoxDecoration(
-                     color: Colors.white,  // Changed background color to white
-                     border: Border.all(color: Colors.black12),  // Added black border
+                     color: Colors.white,
+                     border: Border.all(color: Colors.black12),
                      borderRadius: BorderRadius.circular(10.0),
                    ),
                    child: selectedCountries == null
@@ -73,11 +73,6 @@ class Homepage extends StatelessWidget {
               padding: const EdgeInsets.only(top: 50.0),
               child: SocialIcon(),
             )
-
-
-
-
-
           ],
         ),
       ),

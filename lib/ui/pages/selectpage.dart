@@ -69,7 +69,6 @@ class _SelectPageState extends State<SelectPage> {
                   );
                 },
               ),
-
             ),
           ],
         ),
