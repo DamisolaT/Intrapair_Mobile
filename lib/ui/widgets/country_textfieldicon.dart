@@ -1,27 +1,30 @@
 import 'package:flutter/material.dart';
 
-class CustomTextFieldForm extends StatefulWidget {
+class CountryTextfieldIcon extends StatefulWidget {
   final String hintText;
   final TextEditingController controller;
-
+  final IconData? trailingIcon;
   final TextInputType? keyboardType;
+  final GestureTapCallback? onTap;
 
-  const CustomTextFieldForm({
+  const CountryTextfieldIcon({
     Key? key, // Change super.key to Key? key
     required this.hintText,
     required this.controller,
     this.keyboardType = TextInputType.text,
-
+    this.trailingIcon = Icons.arrow_forward,
+    this.onTap,
   }) : super(key: key); // Call super with key argument
 
   @override
-  State<CustomTextFieldForm> createState() => _CustomTextFieldFormState();
+  State<CountryTextfieldIcon> createState() => _CustomTextFieldFormState();
 }
 
-class _CustomTextFieldFormState extends State<CustomTextFieldForm> {
+class _CustomTextFieldFormState extends State<CountryTextfieldIcon> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onTap:widget.onTap,
       controller: widget.controller,
       keyboardType: widget.keyboardType,
       decoration: InputDecoration(
@@ -53,7 +56,9 @@ class _CustomTextFieldFormState extends State<CustomTextFieldForm> {
           borderRadius: BorderRadius.circular(10.0),
           borderSide: const BorderSide(color: Colors.black26, width: 2.0),
         ),
-
+        suffixIcon: widget.trailingIcon != null
+            ? Icon(widget.trailingIcon, color: Colors.black45)
+            : null, // Add suffix icon if trailingIcon is not null
       ),
       style: const TextStyle(color: Colors.black),
     );

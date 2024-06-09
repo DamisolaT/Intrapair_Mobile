@@ -1,44 +1,40 @@
 import 'package:flutter/material.dart';
 
-class CustomTextFieldFormWithIcon extends StatefulWidget {
+class CountryTextField extends StatefulWidget {
   final String hintText;
   final TextEditingController controller;
-  final IconData? trailingIcon;
   final TextInputType? keyboardType;
-  final GestureTapCallback? onTap;
 
-  const CustomTextFieldFormWithIcon({
-    Key? key, // Change super.key to Key? key
+  const CountryTextField({
+    Key? key,
     required this.hintText,
     required this.controller,
     this.keyboardType = TextInputType.text,
-    this.trailingIcon = Icons.arrow_forward,
-    this.onTap,
-  }) : super(key: key); // Call super with key argument
+  }) : super(key: key);
 
   @override
-  State<CustomTextFieldFormWithIcon> createState() => _CustomTextFieldFormState();
+  State<CountryTextField> createState() => _CountryTextFieldState();
 }
 
-class _CustomTextFieldFormState extends State<CustomTextFieldFormWithIcon> {
+class _CountryTextFieldState extends State<CountryTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      onTap:widget.onTap,
       controller: widget.controller,
       keyboardType: widget.keyboardType,
       decoration: InputDecoration(
         filled: true,
-        fillColor: Colors.white, // Set the background color to white
+        fillColor: Colors.white,
         hintText: widget.hintText,
         hintStyle: const TextStyle(
-            color: Colors.black45,
-            fontSize: 15
+          color: Colors.black45,
+          fontSize: 15,
         ),
-        contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+        contentPadding:
+        const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10.0),
-          borderSide: BorderSide.none, // Remove the default border
+          borderSide: BorderSide.none,
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10.0),
@@ -56,9 +52,7 @@ class _CustomTextFieldFormState extends State<CustomTextFieldFormWithIcon> {
           borderRadius: BorderRadius.circular(10.0),
           borderSide: const BorderSide(color: Colors.black26, width: 2.0),
         ),
-        suffixIcon: widget.trailingIcon != null
-            ? Icon(widget.trailingIcon, color: Colors.black45)
-            : null, // Add suffix icon if trailingIcon is not null
+        prefixIcon: Icon(Icons.search), // Add search icon
       ),
       style: const TextStyle(color: Colors.black),
     );

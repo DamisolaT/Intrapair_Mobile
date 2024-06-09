@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intrapair_task/bloc/country_bloc.dart';
-import 'package:intrapair_task/ui/widgets/CustomTextFieldForm.dart';
-import 'package:intrapair_task/ui/widgets/CustomTextfieldformWithIcon.dart';
+import 'package:intrapair_task/ui/widgets/country_textfield.dart';
+import 'package:intrapair_task/ui/widgets/country_textfieldicon.dart';
 
 class SelectPage extends StatefulWidget {
   const SelectPage({Key? key}) : super(key: key);
@@ -50,7 +50,7 @@ class _SelectPageState extends State<SelectPage> {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            CustomTextFieldForm(
+            CountryTextField(
               hintText: 'Select Country',
               controller: TextEditingController(),
             ),
