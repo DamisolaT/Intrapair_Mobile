@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intrapair_task/bloc/country_bloc.dart';
+import 'package:intrapair_task/ui/pages/searchpage.dart';
 import 'package:intrapair_task/ui/pages/selectpage.dart';
 
 import 'package:intrapair_task/ui/widgets/country_textfield.dart';
@@ -32,7 +33,7 @@ class Homepage extends StatelessWidget {
             SizedBox(height: 50),
              GestureDetector(
                onTap: (){
-                 Navigator.push(context, MaterialPageRoute(builder: (context)=> SelectPage()));
+                 Navigator.push(context, MaterialPageRoute(builder: (context)=> SearchPage()));
                },
                child:Padding(
                  padding: const EdgeInsets.all(16.0),

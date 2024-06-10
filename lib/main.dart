@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context);
-    final countryRepository = CountryRepository(); // Create the repository instance
+    final countryRepository = CountryRepository();
     return BlocProvider(
       create: (context) => CountryBloc(countryRepository),
       lazy: false,
