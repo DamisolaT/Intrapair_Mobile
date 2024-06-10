@@ -4,8 +4,6 @@ import 'package:intrapair_task/bloc/country_bloc.dart';
 import 'package:intrapair_task/ui/widgets/country_textfield.dart';
 import 'package:intrapair_task/ui/widgets/country_textfieldicon.dart';
 
-import 'homepage.dart';
-
 class SelectPage extends StatefulWidget {
   const SelectPage({Key? key}) : super(key: key);
 
@@ -38,9 +36,7 @@ class _SelectPageState extends State<SelectPage> {
         actions: [
           IconButton(
             icon: GestureDetector(
-              onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>Homepage()));
-              },
+              onTap: (){},
               child: Image.asset(
                 'assets/images/cancel_icon.png',
                 height: 15,
